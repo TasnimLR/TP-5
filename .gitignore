@@ -1,0 +1,5 @@
+*.apk
+*.zip
+jadx/
+sources_decompilees/
+.DS_Store

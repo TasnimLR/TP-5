@@ -1,0 +1,64 @@
+================================================================================
+Auteur : Tasnim LAIOUAR
+PHASE 3 - BYPASS AVEC OBJECTION - InjuredAndroid
+================================================================================
+Package: b3nac.injuredandroid
+
+--- LANCER OBJECTION ---
+objection -g b3nac.injuredandroid explore
+
+--- DESACTIVER ROOT DETECTION ---
+android root disable
+android root simulate
+
+--- DESACTIVER CERTIFICATE PINNING ---
+android sslpinning disable
+
+--- EXPLORER LE SYSTEME DE FICHIERS ---
+file ls /data/data/b3nac.injuredandroid/
+file ls /data/data/b3nac.injuredandroid/shared_prefs/
+file download /data/data/b3nac.injuredandroid/shared_prefs/b3nac.injuredandroid_preferences.xml /tmp/prefs.xml
+
+--- LIRE LES SHAREDPREFERENCES ---
+android preferences get
+# Affiche: flagOneButtonColor, flagFiveButtonColor, flagSevenEncrypted, etc.
+
+--- LISTER LES ACTIVITES ---
+android hooking list activities
+
+--- LANCER UNE ACTIVITE EXPORTEE DIRECTEMENT ---
+android intent launch_activity b3nac.injuredandroid.FlagEightLoginActivity
+android intent launch_activity b3nac.injuredandroid.QXV0aA
+android intent launch_activity b3nac.injuredandroid.b25lActivity
+android intent launch_activity b3nac.injuredandroid.ExportedProtectedIntent
+android intent launch_activity b3nac.injuredandroid.FlagEighteenActivity
+
+--- LISTER ET HOOKER LES CLASSES ---
+android hooking list classes
+android hooking search classes injuredandroid
+android hooking watch class b3nac.injuredandroid.FlagOneLoginActivity
+
+--- HOOKER UNE METHODE SPECIFIQUE ---
+android hooking watch class_method b3nac.injuredandroid.FlagOneLoginActivity.submitFlag --dump-args --dump-backtrace --dump-return
+
+--- LISTER LES JOBS FRIDA EN COURS ---
+jobs list
+
+--- VOIR LES VARIABLES DE HEAP ---
+android heap search instances b3nac.injuredandroid.FlagOneLoginActivity
+
+================================================================================
+RESULTATS ATTENDUS - ACTIVITES EXPORTEES VULNERABLES
+================================================================================
+1. b3nac.injuredandroid.FlagEighteenActivity   - exported=true, no permission
+2. b3nac.injuredandroid.ExportedProtectedIntent - exported=true
+3. b3nac.injuredandroid.QXV0aA                 - exported=true (nom encodé)
+4. b3nac.injuredandroid.b25lActivity           - exported=true (nom encodé)
+5. b3nac.injuredandroid.FlagFiveReceiver       - BroadcastReceiver exported=true
+
+================================================================================
+NOMS DECOBES DES ACTIVITES OBFUSQUEES
+================================================================================
+QXV0aA   = base64_decode("QXV0aA") -> "Auth" -> Activité d'authentification cachée
+b25lActivity = base64_decode("b25l") -> "one" -> FlagOneActivity obfusquée
+================================================================================

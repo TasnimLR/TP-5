@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+body {background-color: black;}
+pre {
+	font-weight: normal;
+	color: #bbb;
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+b {font-weight: normal}
+b.BOLD {color: #fff}
+b.ITA {font-style: italic}
+b.UND {text-decoration: underline}
+b.STR {text-decoration: line-through}
+b.UNDSTR {text-decoration: underline line-through}
+b.BLK {color: #000000}
+b.RED {color: #aa0000}
+b.GRN {color: #00aa00}
+b.YEL {color: #aa5500}
+b.BLU {color: #0000aa}
+b.MAG {color: #aa00aa}
+b.CYN {color: #00aaaa}
+b.WHI {color: #aaaaaa}
+b.HIK {color: #555555}
+b.HIR {color: #ff5555}
+b.HIG {color: #55ff55}
+b.HIY {color: #ffff55}
+b.HIB {color: #5555ff}
+b.HIM {color: #ff55ff}
+b.HIC {color: #55ffff}
+b.HIW {color: #ffffff}
+b.BBLK {background-color: #000000}
+b.BRED {background-color: #aa0000}
+b.BGRN {background-color: #00aa00}
+b.BYEL {background-color: #aa5500}
+b.BBLU {background-color: #0000aa}
+b.BMAG {background-color: #aa00aa}
+b.BCYN {background-color: #00aaaa}
+b.BWHI {background-color: #aaaaaa}
+</style>
+</head>
+<body>
+<pre>$ cat sources_decompilees/sources/b3nac/injuredandroid/h.java
+package b3nac.injuredandroid;
+
+import android.util.Base64;
+
+/* loaded from: classes.dex */
+public class h {
+
+    /* renamed from: a, reason: collision with root package name */
+    private static byte[] f1469a = Base64.decode("Q2FwdHVyM1RoMXM=", 0);
+
+    /* renamed from: b, reason: collision with root package name */
+    private static byte[] f1470b = Base64.decode("e0NhcHR1cjNUaDFzVG9vfQ==", 0);
+
+    /* renamed from: c, reason: collision with root package name */
+    private static String f1471c = "9EEADi^^:?;FC652?5C@:5]7:C632D6:@]4@&gt;^DB=:E6];D@?";
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static byte[] a() {
+        return f1470b;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static byte[] b() {
+        return f1469a;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static String c() {
+        return f1471c;
+    }
+}
+
+$ echo Q2FwdHVyM1RoMXM= | base64 -d
+Captur3Th1s
+$ echo e0NhcHR1cjNUaDFzVG9vfQ== | base64 -d
+{Captur3Th1sToo}
+</pre>
+</body>
+</html>
